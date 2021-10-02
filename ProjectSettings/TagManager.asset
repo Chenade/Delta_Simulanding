@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Rocket5
+  - Rocket2
+  - Rocket7
+  - Rocket1
+  - Rocket4
+  - Rocket6
+  - Rocket8
+  - Rocket3
   layers:
   - Default
   - TransparentFX
@@ -13,7 +21,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - camera
   - 
   - 
   - 
