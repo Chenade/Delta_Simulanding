@@ -4,5 +4,38 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/launch/choice.unity
+    guid: aebf3205d6c97bb45be5c8f7b49bbffa
+  - enabled: 1
+    path: Assets/Scenes/launch/Rocket/Rocket1.unity
+    guid: b2f1d687f5d34374abe29c07c5688151
+  - enabled: 1
+    path: Assets/Scenes/launch/Rocket/Rocket2.unity
+    guid: c0d9223db60995246a2d5efab7b98dd3
+  - enabled: 1
+    path: Assets/Scenes/launch/Rocket/Rocket3.unity
+    guid: 03baab320dacd0045ab7454454ec7aaa
+  - enabled: 1
+    path: Assets/Scenes/launch/Rocket/Rocket4.unity
+    guid: c6539f858808c234d8255f0858eedffb
+  - enabled: 1
+    path: Assets/Scenes/launch/Rocket_rotate/Rocket_rotate1.unity
+    guid: 06a5a125c1a5d414e9b3178e372068c6
+  - enabled: 1
+    path: Assets/Scenes/Landing/LandingMoon.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Landing/Moon.unity
+    guid: e2224b88424b4f0469748624439f318e
+  - enabled: 1
+    path: Assets/Scenes/Landing/Mars.unity
+    guid: 3b91dbee2482adf4590c65a96bec07f6
+  - enabled: 0
+    path: Assets/Scenes/launch/Earth.unity
+    guid: e85a3e088e5af0643bf652354fa7b41a
+  - enabled: 0
+    path: Assets/Scenes/launch/SolarSystem.unity
+    guid: 15cbf1b834dcc1d429b960376291aad5
   m_configObjects: {}
