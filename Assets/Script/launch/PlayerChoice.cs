@@ -8,18 +8,19 @@ public class PlayerChoice : MonoBehaviour {
 		private Animator anim;
 		private CharacterController controller;
 
+		//private string target;
 		public float speed = 600.0f;
 		public float turnSpeed = 400.0f;
 		private Vector3 moveDirection = Vector3.zero;
 		public float gravity = 20.0f;
 
-	void Start () {
+		void Start () {
 			controller = GetComponent <CharacterController>();
 			anim = gameObject.GetComponentInChildren<Animator>();
 		}
 
 		void Update (){
-			if (Input.GetKey ("w")) {
+			if (Input.GetKey ("w") || Input.GetKey("s") || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow)) {
 				anim.SetInteger ("AnimationPar", 1);
 			}  else {
 				anim.SetInteger ("AnimationPar", 0);
@@ -34,4 +35,5 @@ public class PlayerChoice : MonoBehaviour {
 			controller.Move(moveDirection * Time.deltaTime);
 			moveDirection.y -= gravity * Time.deltaTime;
 		}
+
 }

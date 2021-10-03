@@ -7,7 +7,7 @@ public class PlanetGravity : MonoBehaviour
 {
     //The gravity of the planet
     public float gravity = 10;
-    private float GM = 10000f;
+    private float GM = 10000f*16f;
     private Transform m_transform;
     private float v0;
     private Vector3 move;
@@ -27,7 +27,7 @@ public class PlanetGravity : MonoBehaviour
             v0 = Mathf.Sqrt(GM / r);
             Debug.Log(v0);
             Debug.Log(r);
-            move = new Vector3(v0, 0, 0) * 1.35f;
+            move = new Vector3(v0, 0, 0) * 4.45f * Time.deltaTime;
             targetObject.GetComponent<Rigidbody>().AddForce(move, ForceMode.VelocityChange);
         }
     }
@@ -36,7 +36,7 @@ public class PlanetGravity : MonoBehaviour
     {
         float distance = Vector3.Distance(targetObject.position, transform.position);
         //The gravity direction of the planet
-        Vector3 gravityDirection = (targetObject.position - m_transform.position).normalized;
+        Vector3 gravityDirection = (targetObject.position - m_transform.position).normalized * Time.deltaTime ;
         
         
         Scene currentScene = SceneManager.GetActiveScene();

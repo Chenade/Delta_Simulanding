@@ -24,6 +24,12 @@ EditorBuildSettings:
     path: Assets/Scenes/launch/Rocket_rotate/Rocket_rotate1.unity
     guid: 06a5a125c1a5d414e9b3178e372068c6
   - enabled: 1
+    path: Assets/Scenes/ToMoon.unity
+    guid: d275c527078d67c45966542e21ddf3c5
+  - enabled: 1
+    path: Assets/Scenes/ToMars.unity
+    guid: edfd6ac7e241bec44ac94ba8e2edf613
+  - enabled: 1
     path: Assets/Scenes/Landing/LandingMoon.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1

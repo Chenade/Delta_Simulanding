@@ -6,6 +6,7 @@ public class PlayerGravity : MonoBehaviour
     public PlanetGravity planetGravity;
     
     private Transform m_transform;
+    public static bool effect = false;
 
     void Awake()
     {
@@ -14,11 +15,17 @@ public class PlayerGravity : MonoBehaviour
 
     void Start()
     {
+        //planetGravity.addOBJ(m_transform);
+    }
+
+    public void startgravity()
+    {
         planetGravity.addOBJ(m_transform);
     }
 
     void Update()
     {
-       planetGravity.AddGravity(m_transform);
+        if(effect)
+            planetGravity.AddGravity(m_transform);
     }
 }

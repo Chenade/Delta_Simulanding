@@ -5,6 +5,10 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     // gravity = G* M*m/r^2
+
+    public GameObject mainCanvas;
+    public GameObject operateCanvas;
+
     public float speed = 10f;
     public float Vt;
     private float distance;
@@ -35,35 +39,50 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float Horizontal = Input.GetAxis("Horizontal") * 10f;
-        float Vertical = Input.GetAxis("Vertical") * 35f;
-        transform.Rotate(new Vector3(0, 0, Vertical) * Time.deltaTime);
-
-        if (!landed)
+        if (operateCanvas.activeInHierarchy)
         {
-            Vt = player.velocity.magnitude;
-            //Debug.Log(speed);
-            speedText.text = Vt.ToString("0.00");
-
-            float tmp = Vector3.Distance(transform.position, target.position) - 87;
-            distance = (int)tmp;
-            distText.text = distance.ToString();
+            if (Input.GetKeyDown(KeyCode.Space))  //Space
+            {
+                operateCanvas.SetActive(false);
+                mainCanvas.SetActive(true);
+                PlayerGravity.effect = true;
+                PlayerGravity sn = gameObject.GetComponent<PlayerGravity>();
+                sn.startgravity();
+            }
         }
+        else
+        {
+            float Horizontal = Input.GetAxis("Horizontal") * 10f;
+            float Vertical = Input.GetAxis("Vertical") * 35f;
+            transform.Rotate(new Vector3(0, 0, Vertical) * Time.deltaTime);
+
+            if (!landed)
+            {
+                Vt = player.velocity.magnitude;
+                //Debug.Log(speed);
+                speedText.text = Vt.ToString("0.00");
+
+                float tmp = Vector3.Distance(transform.position, target.position) - 87;
+                distance = (int)tmp;
+                distText.text = distance.ToString();
+            }
         
 
-        if (Input.GetKeyDown(KeyCode.Space))  //Space
-        {
-            if (fuel.value > 0)
+            if (Input.GetKeyDown(KeyCode.Space))  //Space
             {
-                fuel.value -= 1;
-                player.AddForce(transform.up * -speed , ForceMode.VelocityChange);
-            }
-            else
-            {
-                Debug.Log("Out of Fuel");
-                outOfFuel.SetActive(true);
+                if (fuel.value > 0)
+                {
+                    fuel.value -= 1;
+                    player.AddForce(transform.up * -speed , ForceMode.VelocityChange);
+                }
+                else
+                {
+                    Debug.Log("Out of Fuel");
+                    outOfFuel.SetActive(true);
+                }
             }
         }
+        
         
     }
 
@@ -84,7 +103,8 @@ public class PlayerController : MonoBehaviour
         finalAngle.text = angle.ToString("0.00");
         finalFuel.text = fuel.value.ToString() + "%";
         finalSpeed.text = Vt.ToString("0.00");
-        if (angle >= 89.55 && Vt <= 0.3)
+        PlayerGravity.effect = false;
+        if (angle >= 89.55 && Vt <= 2)
         {
             nextStage.SetActive(true);
             title.text = "Congratulations";

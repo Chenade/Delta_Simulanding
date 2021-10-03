@@ -15,167 +15,42 @@ public class Chat : MonoBehaviour
     public GameObject rocket7_Text;
     public GameObject rocket8_Text;
     public GameObject pressTip;
+    private GameObject canvas;
+    private string target;
 
-    //Ray main_ray;
-    //RaycastHit hit;
     void Update()
     {
-        RaycastHit hit;
-
-        if (Physics.Raycast(character.transform.position, character.transform.up * -1, out hit, 150f))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            //Debug.Log(hit.collider.gameObject.tag);
-            if (hit.collider.gameObject.tag == "Rocket1")
+            Debug.Log(target);
+            if (target != null)
             {
-                if (rocket1_Text.activeInHierarchy)
-                    pressTip.SetActive(true);
-
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    if (!rocket1_Text.activeInHierarchy)
-                    {
-                        rocket1_Text.SetActive(true);
-                        pressTip.SetActive(false);
-                    }
-                    else
-                    {
-                        rocket1_Text.SetActive(false);
-                        pressTip.SetActive(true);
-                    }
-                }
+                if (target == "Rocket1") canvas = rocket1_Text;
+                if (target == "Rocket2") canvas = rocket2_Text;
+                if (target == "Rocket3") canvas = rocket3_Text;
+                if (target == "Rocket4") canvas = rocket4_Text;
+                if (target == "Rocket5") canvas = rocket5_Text;
+                if (target == "Rocket6") canvas = rocket6_Text;
+                if (target == "Rocket7") canvas = rocket7_Text;
+                if (target == "Rocket8") canvas = rocket8_Text;
+                if(canvas) canvas.SetActive(!canvas.activeInHierarchy);
             }
-            else if (hit.collider.gameObject.tag == "Rocket2")
-            {
-                if (rocket2_Text.activeInHierarchy)
-                    pressTip.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    if (!rocket2_Text.activeInHierarchy)
-                    {
-                        rocket2_Text.SetActive(true);
-                        pressTip.SetActive(false);
-                    }
-                    else
-                    {
-                        rocket2_Text.SetActive(false);
-                        pressTip.SetActive(true);
-                    }
-                }
-            }
-            else if (hit.collider.gameObject.tag == "Rocket3")
-            {
-                if (rocket3_Text.activeInHierarchy)
-                    pressTip.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    if (!rocket3_Text.activeInHierarchy)
-                    {
-                        rocket3_Text.SetActive(true);
-                        pressTip.SetActive(false);
-                    }
-                    else
-                    {
-                        rocket3_Text.SetActive(false);
-                        pressTip.SetActive(true);
-                    }
-                }
-            }
-            else if (hit.collider.gameObject.tag == "Rocket4")
-            {
-                if (rocket4_Text.activeInHierarchy)
-                    pressTip.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    if (!rocket4_Text.activeInHierarchy)
-                    {
-                        rocket4_Text.SetActive(true);
-                        pressTip.SetActive(false);
-                    }
-                    else
-                    {
-                        rocket4_Text.SetActive(false);
-                        pressTip.SetActive(true);
-                    }
-                }
-            }
-            else if (hit.collider.gameObject.tag == "Rocket5")
-            {
-                if (rocket5_Text.activeInHierarchy)
-                    pressTip.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    if (!rocket5_Text.activeInHierarchy)
-                    {
-                        rocket5_Text.SetActive(true);
-                        pressTip.SetActive(false);
-                    }
-                    else
-                    {
-                        rocket5_Text.SetActive(false);
-                        pressTip.SetActive(true);
-                    }
-                }
-            }
-            else if (hit.collider.gameObject.tag == "Rocket6")
-            {
-                if (rocket6_Text.activeInHierarchy)
-                    pressTip.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    if (!rocket6_Text.activeInHierarchy)
-                    {
-                        rocket6_Text.SetActive(true);
-                        pressTip.SetActive(false);
-                    }
-                    else
-                    {
-                        rocket6_Text.SetActive(false);
-                        pressTip.SetActive(true);
-                    }
-                }
-            }
-            else if (hit.collider.gameObject.tag == "Rocket7")
-            {
-                if (rocket7_Text.activeInHierarchy)
-                    pressTip.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    if (!rocket7_Text.activeInHierarchy)
-                    {
-                        rocket7_Text.SetActive(true);
-                        pressTip.SetActive(false);
-                    }
-                    else
-                    {
-                        rocket7_Text.SetActive(false);
-                        pressTip.SetActive(true);
-                    }
-                }
-            }
-            else if (hit.collider.gameObject.tag == "Rocket8")
-            {
-                if (rocket8_Text.activeInHierarchy)
-                    pressTip.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    if (!rocket8_Text.activeInHierarchy)
-                    {
-                        rocket8_Text.SetActive(true);
-                        pressTip.SetActive(false);
-                    }
-                    else
-                    {
-                        rocket8_Text.SetActive(false);
-                        pressTip.SetActive(true);
-                    }
-                }
-            }
-            else
-                pressTip.SetActive(false);
-         }
-         else
-                pressTip.SetActive(false);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        pressTip.SetActive(true);
+        target = (other.transform.tag);
+        //Debug.Log(target);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        pressTip.SetActive(false);
+        target = null;
+        //Debug.Log(target);
+    }
+}
 
 

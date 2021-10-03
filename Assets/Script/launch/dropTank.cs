@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class dropTank : MonoBehaviour
 {
@@ -9,19 +10,23 @@ public class dropTank : MonoBehaviour
     public GameObject tk3;
     public GameObject tk4;
     public GameObject tk5;
+    public GameObject fire;
+    public Slider heightSlider;
     public string rocket;
     private float height;
 
     // Start is called before the first frame update
     void Start()
     {
+        rocket = gameObject.name;
     }
 
     // Update is called once per frame
     void Update()
     {
         height = transform.position.y;
-        if(rocket == "Falcon_Heavy")
+        heightSlider.value = height / 5000;
+        if (rocket == "Falcon_Heavy")
         {
             if (height > 2000 && tk1)
             {
@@ -37,6 +42,7 @@ public class dropTank : MonoBehaviour
                 rb2.AddForce(tk2.transform.forward * 100f);
                 rb2.AddForce(Physics.gravity, ForceMode.Acceleration);
                 tk2 = null;
+                fire.SetActive(true);
             }
 
             if (height > 4000 && tk3)

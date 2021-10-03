@@ -1,0 +1,1 @@
+[w]During landing we need to pay attention to our velocity, which can be split into two components: horizontal and vertical velocity. In order to descend we will first decrease our horizontal velocity and the gravity pull will do the rest. But also keep an eye on your vertical speed as well,if you hit the ground too hard you will fail.
