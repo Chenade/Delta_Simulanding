@@ -9,17 +9,29 @@ EditorBuildSettings:
     path: Assets/Scenes/launch/choice.unity
     guid: aebf3205d6c97bb45be5c8f7b49bbffa
   - enabled: 1
-    path: Assets/Scenes/launch/Rocket/Rocket1.unity
-    guid: b2f1d687f5d34374abe29c07c5688151
+    path: Assets/Scenes/launch/Rocket/SLS Block 1B Cargo.unity
+    guid: a7979f341ed649f46bf7c3d36d89f2d3
   - enabled: 1
-    path: Assets/Scenes/launch/Rocket/Rocket2.unity
-    guid: c0d9223db60995246a2d5efab7b98dd3
+    path: Assets/Scenes/launch/Rocket/SLS Block 1B Crew.unity
+    guid: ebb18e4eda2138b49b36953a62df8b20
   - enabled: 1
-    path: Assets/Scenes/launch/Rocket/Rocket3.unity
-    guid: 03baab320dacd0045ab7454454ec7aaa
+    path: Assets/Scenes/launch/Rocket/SLS Block 2 Cargo.unity
+    guid: 0f1ac3fa0c2a94f4296a3e62147d8022
   - enabled: 1
-    path: Assets/Scenes/launch/Rocket/Rocket4.unity
-    guid: c6539f858808c234d8255f0858eedffb
+    path: Assets/Scenes/launch/Rocket/SLS Block1.unity
+    guid: 4e3791272d1ba0c45a98aeeff0d0f555
+  - enabled: 1
+    path: Assets/Scenes/launch/Rocket/Star_ship.unity
+    guid: 6a63f687e60501d4aa05481da7a81536
+  - enabled: 1
+    path: Assets/Scenes/launch/Rocket/Delta_IV.unity
+    guid: 342e6b55d6cb2684e9d3f1063383132f
+  - enabled: 1
+    path: Assets/Scenes/launch/Rocket/Falcon Heavy.unity
+    guid: be82d9b5768fc4243be86a9c0b0fe801
+  - enabled: 1
+    path: Assets/Scenes/launch/Rocket/Saturn V.unity
+    guid: b740d3cbde190564c98c9c36ce8ef561
   - enabled: 1
     path: Assets/Scenes/launch/Rocket_rotate/Rocket_rotate1.unity
     guid: 06a5a125c1a5d414e9b3178e372068c6
@@ -37,6 +49,9 @@ EditorBuildSettings:
     guid: e2224b88424b4f0469748624439f318e
   - enabled: 1
     path: Assets/Scenes/Landing/Mars.unity
+    guid: 132e4ca563c9cdc438c16c93e756104e
+  - enabled: 0
+    path: Assets/Scenes/Landing/_Mars.unity
     guid: 3b91dbee2482adf4590c65a96bec07f6
   - enabled: 0
     path: Assets/Scenes/launch/Earth.unity
