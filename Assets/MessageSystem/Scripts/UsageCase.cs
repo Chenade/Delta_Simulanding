@@ -27,9 +27,10 @@ public class UsageCase : MonoBehaviour
             ReadTextDataFromAsset(textAsset);
 
         //add special chars and functions in other component.
-        //msgSys.AddSpecialCharToFuncMap("solar", CustomizedFunction);
+        //msgSys.AddSpecialCharToFuncMap("clear", clearText);
     }
-        private void ReadTextDataFromAsset(TextAsset _textAsset)
+
+    private void ReadTextDataFromAsset(TextAsset _textAsset)
     {
         textList.Clear();
         textList = new List<string>();

@@ -10,7 +10,7 @@ public class buttonEvent : MonoBehaviour
     public string scene;
     public void closeDetailCanvas() {
         detailCanvas.SetActive(false);
-        mainCanvas.SetActive(false);
+        mainCanvas.SetActive(true);
     }
 
     public void ChangeScene()

@@ -30,8 +30,8 @@ public class SelectTarget : MonoBehaviour
             float val = slider.value;
             bool valid = false;
             Debug.Log(val.ToString());
-            if (val > 3335 && val < 4604)   valid = true;
-            if (val > 7620 && val < 8737)   valid = false;
+            if (Launch.Scene == "ToMoon" && val > 3335 && val < 4604)   valid = true;
+            if (Launch.Scene == "Mars" && val > 7620 && val < 8737)   valid = true;
 
 
             if (valid)
@@ -49,6 +49,7 @@ public class SelectTarget : MonoBehaviour
         target.text = "Mars";
         rangeMars.SetActive(true);
         rangeMoon.SetActive(false);
+        Launch.Scene = "Mars";
     }
 
     public void SelectMoon()
@@ -56,5 +57,6 @@ public class SelectTarget : MonoBehaviour
         target.text = "Moon";
         rangeMoon.SetActive(true);
         rangeMars.SetActive(false);
+        Launch.Scene = "ToMoon";
     }
 }

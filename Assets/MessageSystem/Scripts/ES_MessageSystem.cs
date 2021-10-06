@@ -42,6 +42,7 @@ namespace RemptyTool.ES_MessageSystem
             specialCharFuncMap.Add("r", () => StartCoroutine(CmdFun_r_Task()));
             specialCharFuncMap.Add("l", () => StartCoroutine(CmdFun_l_Task()));
             specialCharFuncMap.Add("lr", () => StartCoroutine(CmdFun_lr_Task()));
+            specialCharFuncMap.Add("clear", () => StartCoroutine(CmdFun_clear_Task()));
         }
 
         #region Public Function
@@ -93,6 +94,13 @@ namespace RemptyTool.ES_MessageSystem
             IsWaitingForNextToGo = true;
             yield return new WaitUntil(() => IsWaitingForNextToGo == false);
             msgText += '\n';
+            IsOnCmdEvent = false;
+            yield return null;
+        }
+        private IEnumerator CmdFun_clear_Task()
+        {
+            IsOnCmdEvent = true;
+            msgText = "";   //Erase the messages.
             IsOnCmdEvent = false;
             yield return null;
         }

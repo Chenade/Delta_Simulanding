@@ -88,36 +88,36 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        landed = true;
-        Vector3 start = transform.position;
-        Vector3 end = target.position;
-        Vector3 rocket_v = transform.up;
-        float angle = Vector3.Dot((end - start).normalized, (rocket_v).normalized);
-        angle *= 90;
-
-        //Debug.Log(angle);
-        //Debug.Log(Vt);
-        //Debug.Log(distance);
-        dashboard.SetActive(false);
-        result.SetActive(true);
-        finalAngle.text = angle.ToString("0.00");
-        finalFuel.text = fuel.value.ToString() + "%";
-        finalSpeed.text = Vt.ToString("0.00");
-        PlayerGravity.effect = false;
-        if (angle >= 89.55 && Vt <= 2)
+        if (!landed)
         {
-            nextStage.SetActive(true);
-            title.text = "Congratulations";
-            Debug.Log("pass");
+            landed = true;
+            Vector3 start = transform.position;
+            Vector3 end = target.position;
+            Vector3 rocket_v = transform.up;
+            float angle = Vector3.Dot((end - start).normalized, (rocket_v).normalized);
+            angle *= 90;
 
+            dashboard.SetActive(false);
+            result.SetActive(true);
+            finalAngle.text = angle.ToString("0.00");
+            finalFuel.text = fuel.value.ToString() + "%";
+            finalSpeed.text = Vt.ToString("0.00");
+            PlayerGravity.effect = false;
+            if (angle >= 89.55 && Vt <= 2)
+            {
+                nextStage.SetActive(true);
+                title.text = "Congratulations";
+                Debug.Log("pass");
+
+            }
+            else
+            {
+                tryAgain.SetActive(true);
+                title.text = "Mission Failed";
+                Debug.Log("failed");
+            }
+            //Debug.Log(Vector3.Dot((end - start).normalized, (rocket_v).normalized));
+            //bool passed = Vector3.Dot((end - start).normalized, (rocket_v).normalized) > 0;
         }
-        else
-        {
-            tryAgain.SetActive(true);
-            title.text = "Mission Failed";
-            Debug.Log("failed");
-        }
-        //Debug.Log(Vector3.Dot((end - start).normalized, (rocket_v).normalized));
-        //bool passed = Vector3.Dot((end - start).normalized, (rocket_v).normalized) > 0;
     }
 }

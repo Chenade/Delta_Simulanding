@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.UI;
 
 public class Dialog : MonoBehaviour
 {
-    public Text dialog_Text;
+    public TextMeshProUGUI dialog_Text;
     public Text slider_Text;
     public Slider slider;
     private float delta = 100;
@@ -30,7 +31,7 @@ public class Dialog : MonoBehaviour
         {
             Destroy(dialog_Text);
             secCanvas.SetActive(true);
-            tips.text = "Click the destintation! Press Space To Launch!";
+            tips.text = "Choose the destintation! Press Space To Launch!";
         }
 
         slider_Text.text = slider.value.ToString();

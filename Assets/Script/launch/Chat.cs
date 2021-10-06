@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Chat : MonoBehaviour
@@ -25,15 +26,23 @@ public class Chat : MonoBehaviour
             Debug.Log(target);
             if (target != null)
             {
-                if (target == "Rocket1") canvas = rocket1_Text;
-                if (target == "Rocket2") canvas = rocket2_Text;
-                if (target == "Rocket3") canvas = rocket3_Text;
-                if (target == "Rocket4") canvas = rocket4_Text;
-                if (target == "Rocket5") canvas = rocket5_Text;
-                if (target == "Rocket6") canvas = rocket6_Text;
-                if (target == "Rocket7") canvas = rocket7_Text;
-                if (target == "Rocket8") canvas = rocket8_Text;
+                if (target == "Falcon_Heavy") canvas = rocket1_Text;
+                if (target == "Delta_IV") canvas = rocket2_Text;
+                if (target == "Saturn_V") canvas = rocket3_Text;
+                if (target == "SLS Block 1B Cargo") canvas = rocket4_Text;
+                if (target == "SLS Block 1B Crew") canvas = rocket5_Text;
+                if (target == "SLS Block 2 Cargo") canvas = rocket6_Text;
+                if (target == "SLS Block1") canvas = rocket7_Text;
+                if (target == "Star_ship") canvas = rocket8_Text;
                 if(canvas) canvas.SetActive(!canvas.activeInHierarchy);
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            Debug.Log(target);
+            if (target != null)
+            {
+                SceneManager.LoadScene(target);
             }
         }
     }
@@ -41,7 +50,7 @@ public class Chat : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         pressTip.SetActive(true);
-        target = (other.transform.tag);
+        target = (other.transform.name);
         //Debug.Log(target);
     }
 
